@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_gcode3d/templates *
+recursive-include octoprint_gcode3d/translations *
+recursive-include octoprint_gcode3d/static *
