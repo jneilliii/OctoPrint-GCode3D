@@ -7,8 +7,12 @@ $(function() {
 		self.rendered3D = ko.observable(false);
 
 		self.onBeforeBinding = function(){
-			$('#canvas_container').before('<div id="3d_container" data-bind="visible: rendered3D"></div>');
+			$('#canvas_container').before('<div id="3d_container" data-bind="visible: rendered3D,event: { mouseover: stop_propogation }, mouseoverBubble: false"></div>');
 			$('#gcode div.progress').after('<div class="row-fluid" id="gcode3d"><button type="button" class="btn btn-block" data-bind="click: toggle3D, css: { \'btn-primary\': rendered3D }">3D</button></div>')
+		}
+
+		self.stop_propogation = function( e ) {
+			console.log(e);
 		}
 
 		self.toggle3D = function() {
